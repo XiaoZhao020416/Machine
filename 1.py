@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 from torch import nn
 
-train_file = r"D:/ROBOTLESSON/train.csv"
-test_file = r"D:/ROBOTLESSON/test.csv"
+train_file = r"train.csv"
+test_file = r"test.csv"
 def data_precess(filename):
     df = pd.read_csv(filename)
     data = []
@@ -35,9 +35,9 @@ print("Accuracy: %0.1f (+/- %0.1f)" % (scores.mean(), scores.std() * 2))
 
 clf.fit(train_data,train_labels)
 out = clf.predict(test_data)
-sbmit = pd.read_csv(r"D:/ROBOTLESSON/sample_submission.csv")
+sbmit = pd.read_csv(r"sample_submission.csv")
 sbmit['CLASS'] = out
-sbmit.to_csv('D:/ROBOTLESSON/sample_submission.csv')
+sbmit.to_csv('sample_submission.csv')
 
 
 class shixu_Model1(nn.Module):
